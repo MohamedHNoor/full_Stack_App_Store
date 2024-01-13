@@ -14,7 +14,7 @@ const Authentication = () => {
     >
       <div
         className='w-full lg:w-96 px-4 py-6 rounded-md backdrop-blur-md flex justify-center items-center flex-col gap-8'
-        style={{ backgroundColor: 'rgba(255, 255, 255, 0.1)' }}
+        style={{ backgroundColor: 'rgba(255, 255, 255, 0.2)' }}
       >
         <div className='flex flex-col justify-center items-center gap-2'>
           <p className='text-2xl text-white'>Welcome Back!</p>
