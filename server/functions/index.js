@@ -28,6 +28,16 @@ exports.validateUserJWTToken = functions.https.onRequest(async (req, res) => {
     try {
       const decodedToken = await admin.auth().verifyIdToken(token);
       if (decodedToken) {
+        // get user collection
+        const docRef = db.collection('users').doc(decodedToken.uid);
+        const doc = await docRef.get();
+
+        // set user collection
+        if (!doc.exists) {
+          const userRef = db.collection('users').doc(decodedToken.uid);
+          await userRef.set(decodedToken);
+        }
+        // return user collection
         return res.status(200).json({ success: true, user: decodedToken });
       }
     } catch (error) {
